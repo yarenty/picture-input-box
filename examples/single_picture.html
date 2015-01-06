@@ -21,6 +21,15 @@
 		<script type="text/javascript" src="../js/pib/pib.js"></script>
 		-->
 
+   <script>
+    var te = document.querySelector('textarea');
+    te.addEventListener('keydown', resizeTextarea);
+
+    function resizeTextarea(ev) {
+        this.style.height = '24px';
+        this.style.height = this.scrollHeight + 14 + 'px';
+    }
+    </script>
 	</head>
 	<body>
 
@@ -28,8 +37,9 @@
 
 		<form id="form" method="post" action="../dump.php">
 			<div class="picture-input">
-				<input type="text" class="form-control input-no-border" id="txt_box" placeholder="Enter something" name="txt_box" />
-
+				<textarea rows="3" cols="40" id="txt_box" txt_box class="form-control input-text input-no-border"
+				 placeholder="Enter something" onkeyup="this.style.height='24px'; this.style.height = this.scrollHeight + 14 + 'px';"></textarea>
+				
 				<div id="uploader">
 					<p>
 						Your browser doesn't have Flash, Silverlight or HTML5 support.
@@ -55,8 +65,8 @@
 
 					// Resize images on clientside if we can
 					resize : {
-						width : 800,
-						height : 600,
+						width : 400,
+						height : 400,
 						quality : 90,
 						crop : true // crop to exact dimensions
 					},

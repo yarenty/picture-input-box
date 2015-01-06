@@ -295,8 +295,8 @@ $.widget("ui.plupload", {
 			remember: true // requires: https://github.com/carhartl/jquery-cookie, otherwise disabled even if set to true
 		},
 
-		thumb_width: 100,
-		thumb_height: 60,
+		thumb_width: 200,
+		thumb_height: 120,
 
 		multiple_queues: true, // re-use widget by default
 		dragdrop : true, 

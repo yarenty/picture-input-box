@@ -1,13 +1,19 @@
 /*
    Plupload
 ------------------------------------------------------------------- */
+.input-text {
+overflow: hidden;
+resize: none;
+box-sizing: border-box;
+}
 
 .form-control {
 display: block;
 width: 100%;
-height: 34px;
+height: 2em;
 padding: 6px 12px;
-font-size: 14px;
+margin-right: 5px;
+font-size: 1em;
 line-height: 1.42857143;
 color: #555;
 background-color: #fff;
@@ -36,6 +42,16 @@ border:none;
 .picture-input {
 border: 1px solid #ccc;
 border-radius: 4px;
+width: 90%;
+}
+
+
+.plupload_add{
+background-image: url(img/pictures.png);
+}
+
+.plupload_start{
+float: right;
 }
 
 .plupload_wrapper * {
@@ -361,7 +377,9 @@ _plupload_container _plupload_header {border-width: 0 0 1px 0; position: relativ
 	display: block;
 }
 
+/*
 .plupload_buttons, .plupload_upload_status {float: left}
+*/
 
 .plupload_message {
 	position: absolute;
