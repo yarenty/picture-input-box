@@ -1,6 +1,31 @@
 /*
    Plupload
 ------------------------------------------------------------------- */
+
+/*
+.plupload_add { 
+	width: 128px !important;
+	height: 128px !important;
+	background-image: url(../img/32-128.png) !important;  
+    background-repeat: no-repeat;
+}
+*/
+
+
+.ui-button .ui-icon-camera { 
+}
+
+.ui-button.ui-state-hover .ui-icon-camera { 
+}
+
+
+a#uploader_browse.plupload_button.plupload_add.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+border: none; /* 1px solid #d3d3d3 {borderColorDefault}*/;
+background: #ffffff;/*{bgColorDefault}; */
+color: #555555/*{fcDefault}*/;
+}
+
 .input-text {
 overflow: hidden;
 resize: none;
@@ -46,9 +71,7 @@ width: 90%;
 }
 
 
-.plupload_add{
-background-image: url(img/pictures.png);
-}
+
 
 .plupload_start{
 float: right;

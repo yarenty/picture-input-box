@@ -241,7 +241,7 @@ function renderUI(obj) {
 				'<div>' +
 					'<div class="plupload_cell plupload_file_name">' +
 						'<div class="plupload_buttons"><!-- Visible -->' +
-							'<a class="plupload_button plupload_add">' + _("Add Files") + '</a>&nbsp;' +
+							'<a class="plupload_button plupload_add"><img src="../js/pib/img/32-128.png" width="26" height="26"></a>&nbsp;' +
 							'<a class="plupload_button plupload_start">' + _("Start Upload") + '</a>&nbsp;' +
 							'<a class="plupload_button plupload_stop plupload_hidden">'+_("Stop Upload") + '</a>&nbsp;' +
 						'</div>' +
@@ -256,9 +256,9 @@ function renderUI(obj) {
 							'<div class="plupload_clearer">&nbsp;</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="plupload_file_status"><span class="plupload_total_status">0%</span></div>' +
+				/*	'<div class="plupload_file_status"><span class="plupload_total_status">0%</span></div>' +
 					'<div class="plupload_file_size"><span class="plupload_total_file_size">0 kb</span></div>' +
-					'<div class="plupload_file_action"></div>' +
+					'<div class="plupload_file_action"></div>' + */
 				'</div>' +
 				'</div>' +
 
@@ -284,8 +284,8 @@ $.widget("ui.plupload", {
 		// widget specific
 		buttons: {
 			browse: true,
-			start: true,
-			stop: true	
+			start: true //,
+//			stop: true	
 		},
 		
 		views: {
@@ -342,13 +342,13 @@ $.widget("ui.plupload", {
 		// buttons
 		this.browse_button = $('.plupload_add', this.container).attr('id', id + '_browse');
 		this.start_button = $('.plupload_start', this.container).attr('id', id + '_start');
-		this.stop_button = $('.plupload_stop', this.container).attr('id', id + '_stop');
+/*		this.stop_button = $('.plupload_stop', this.container).attr('id', id + '_stop');
 		this.thumbs_switcher = $('#' + id + '_view_thumbs');
 		this.list_switcher = $('#' + id + '_view_list');
-		
+*/		
 		if ($.ui.button) {
 			this.browse_button.button({
-				icons: { primary: 'ui-icon-circle-plus' },
+				icons: { primary: null, secondary: null},
 				disabled: true
 			});
 			
@@ -357,7 +357,7 @@ $.widget("ui.plupload", {
 				disabled: true
 			});
 			
-			this.stop_button.button({
+/*			this.stop_button.button({
 				icons: { primary: 'ui-icon-circle-close' }
 			});
       
@@ -370,6 +370,7 @@ $.widget("ui.plupload", {
 				text: false,
 				icons: { secondary: "ui-icon-image" }
 			});
+*/
 		}
 		
 		// progressbar
@@ -512,10 +513,10 @@ $.widget("ui.plupload", {
 				self.start_button.button('disable').hide();
 			} 
 			
-			if (!self.options.buttons.stop) {
+/*			if (!self.options.buttons.stop) {
 				self.stop_button.button('disable').hide();
 			}
-				
+	*/			
 			if (!self.options.unique_names && self.options.rename) {
 				self._enableRenaming();	
 			}
@@ -533,11 +534,11 @@ $.widget("ui.plupload", {
 				e.preventDefault();
 			});
 
-			self.stop_button.click(function(e) {
+/*			self.stop_button.click(function(e) {
 				self.stop();
 				e.preventDefault();
 			});
-
+*/
 			self._trigger('ready', null, { up: up });
 		});
 		
@@ -634,12 +635,13 @@ $.widget("ui.plupload", {
 			} else {
 				self.start_button.button('enable').show();
 			}
-			
+/*			
 			if (!value.stop) {
 				self.stop_button.button('disable').hide();
 			} else {
 				self.start_button.button('enable').show();	
 			}
+*/
 		}
 		
 		self.uploader.settings[key] = value;	
@@ -881,11 +883,18 @@ $.widget("ui.plupload", {
 
 			this._updateTotalProgress();
 		}
-
+/*
+  //here is change to name on  button
 		if (up.total.queued === 0) {
 			$('.ui-button-text', this.browse_button).html(_('Add Files'));
 		} else {
 			$('.ui-button-text', this.browse_button).html(o.sprintf(_('%d files queued'), up.total.queued));
+		}
+*/
+		if (up.total.queued === 0) {
+			this.browse_button.button('enable');
+		} else {
+			this.browse_button.button('disable');
 		}
 
 		up.refresh();
