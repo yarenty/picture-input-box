@@ -856,8 +856,8 @@ $.widget("ui.plupload", {
 				up.disableBrowse();
 			}
 							
-			$('.plupload_upload_status', this.element).html(o.sprintf(_('Uploaded %d/%d files'), up.total.uploaded, up.files.length));
-			$('.plupload_header_content', this.element).addClass('plupload_header_content_bw');
+		//	$('.plupload_upload_status', this.element).html(o.sprintf(_('Uploaded %d/%d files'), up.total.uploaded, up.files.length));
+		//	$('.plupload_header_content', this.element).addClass('plupload_header_content_bw');
 		} 
 		else if (plupload.STOPPED === up.state) {
 			$([])
@@ -968,7 +968,7 @@ $.widget("ui.plupload", {
 		this.filelist[0].scrollTop = this.filelist[0].scrollHeight;
 		
 		this.progressbar.progressbar('value', up.total.percent);
-		
+		/*
 		this.element
 			.find('.plupload_total_status')
 				.html(up.total.percent + '%')
@@ -978,6 +978,7 @@ $.widget("ui.plupload", {
 				.end()
 			.find('.plupload_upload_status')
 				.html(o.sprintf(_('Uploaded %d/%d files'), up.total.uploaded, up.files.length));
+				*/
 	},
 
 
